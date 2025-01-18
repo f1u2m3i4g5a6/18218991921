@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universal Abyss</title>
+    <link rel="icon" href="universal.ico" type="image/icon">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #0b121e;
+            margin: 0;
+            overflow: hidden;
+            font-family: 'Orbitron', sans-serif;
+            color: #ffffff;
+        }
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .particles div {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #ffffff;
+            border-radius: 50%;
+            animation: float 6s infinite;
+            opacity: 0;
+        }
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-200%);
+                opacity: 0;
+            }
+        }
+        .line {
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #ffffff, transparent);
+            animation: move 5s infinite;
+        }
+        .line:nth-child(odd) {
+            animation-duration: 7s;
+        }
+        @keyframes move {
+            0% {
+                transform: translateY(-50%) translateX(-100%);
+            }
+            100% {
+                transform: translateY(50%) translateX(100%);
+            }
+        }
+        .text {
+            position: relative;
+            z-index: 1;
+            font-size: 36px;
+            font-weight: bold;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+            animation: fadeIn 3s ease-in-out infinite alternate;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="particles">
+        <!-- Criação de várias partículas -->
+        <div style="top: 20%; left: 10%; animation-duration: 7s;"></div>
+        <div style="top: 40%; left: 20%; animation-duration: 6s;"></div>
+        <div style="top: 60%; left: 30%; animation-duration: 5s;"></div>
+        <div style="top: 80%; left: 40%; animation-duration: 8s;"></div>
+        <div style="top: 30%; left: 50%; animation-duration: 9s;"></div>
+        <div style="top: 50%; left: 60%; animation-duration: 7s;"></div>
+        <div style="top: 70%; left: 70%; animation-duration: 6s;"></div>
+        <div style="top: 40%; left: 80%; animation-duration: 5s;"></div>
+        <div style="top: 60%; left: 90%; animation-duration: 8s;"></div>
+    </div>
+    <div class="lines">
+        <div class="line" style="top: 10%;"></div>
+        <div class="line" style="top: 20%;"></div>
+        <div class="line" style="top: 30%;"></div>
+        <div class="line" style="top: 40%;"></div>
+        <div class="line" style="top: 50%;"></div>
+        <div class="line" style="top: 60%;"></div>
+        <div class="line" style="top: 70%;"></div>
+        <div class="line" style="top: 80%;"></div>
+        <div class="line" style="top: 90%;"></div>
+    </div>
+    <div class="text">Redirecionando ao nosso Discord</div>
+
+    <script>
+        // Redireciona para o link do Discord após 5 segundos
+        setTimeout(function() {
+            window.location.href = 'https://discord.gg/FcxheWAX9B';
+        }, 5000);
+    </script>
+</body>
+</html>
