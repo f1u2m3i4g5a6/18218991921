@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universal Abyss</title>
+    <link rel="icon" href="universal.ico" type="image/icon">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+        body {
+            margin: 0;
+            font-family: 'Orbitron', sans-serif;
+            background-color: #0b121e;
+            color: #ffffff;
+        }
+        .container {
+            width: 100%;
+            padding: 10px 20px;
+            background-color: #1a1d2b;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            border-radius: 0 0 10px 10px;
+        }
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .navbar {
+            display: flex;
+        }
+        .navbar a {
+            margin: 0 10px;
+            font-size: 14px;
+            text-decoration: none;
+            color: #ffffff;
+            border: 2px solid transparent;
+            padding: 7px 14px;
+            border-radius: 10px;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        .navbar a:hover {
+            background-color: #ffffff;
+            color: #0b121e;
+            border-color: #0b121e;
+        }
+        main {
+            margin-top: 80px;
+            padding: 20px;
+            text-align: center;
+        }
+        .content-section {
+            padding: 40px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .content-section h2 {
+            margin-bottom: 20px;
+        }
+        .content-section p {
+            max-width: 800px;
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+        .content-box {
+            background-color: #1a1d2b;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px 0;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            text-align: left;
+            width: 80%;
+            max-width: 800px;
+            display: flex;
+            align-items: flex-start;
+        }
+        .content-box img {
+            width: 40px;
+            height: 40px;
+            margin-right: 15px;
+            /* Removido: filter: brightness(0) invert(1); */
+        }
+        .content-box h3 {
+            margin: 0 0 10px 0;
+        }
+        .content-box p {
+            font-weight: bold;
+        }
+        .content-box div p {
+            font-weight: normal;
+        }
+        .blue {
+            color: #89CFF0; /* Azul bebê */
+        }
+    </style>
+</head>
+<body>
+    <header class="container">
+        <a class="logo" href="universal">Universal Abyss</a>
+        <nav class="navbar">
+            <a href="universal">Início</a>
+            <a href="salas">Salas</a>
+            <a href="discord.gg/FcxheWAX9B" target="_blank">Discord</a>
+            <a href="temporadas" target="_blank">Temporadas</a>
+            <a href="reclamacoes" target="_blank">Reclamações</a>
+        </nav>
+    </header>
+    <main>
+        <h1 class="blue">Descubra Nossa Missão</h1>
+        <p>Aqui você encontra algumas informações sobre nossa comunidade.</p>
+
+        <section class="content-section">
+            <h2 class="blue">Nossa Missão</h2>
+            <div class="content-box">
+                <img src="missao.png" alt="Ícone Missão">
+                <div>
+                    <p><strong>A missão do Universal Abyss</strong> é capacitar os jogadores em todo o ecossistema, criando uma melhor experiência multijogador para jogadores competitivos e casuais, onde eles podem praticar, socializar e prosperar.</p>
+                    <p><strong>O Universal Abyss</strong> visa rejuvenescer a atmosfera da sala pública, oferecendo aos nossos jogadores as ferramentas para manter uma jogabilidade agradável e competitiva em uma autêntica experiência de jogo.</p>
+                </div>
+            </div>
+
+            <h2 class="blue">O que oferecemos</h2>
+            <div class="content-box">
+                <img src="analytics.png" alt="Ícone Analytics">
+                <div>
+                    <h3>Analytics</h3>
+                    <p>Um punhado de estatísticas e análises poderosas permitem que você acompanhe sua jogabilidade e progresso. Estatísticas exclusivas para cada modo de jogo.</p>
+                </div>
+            </div>
+            <div class="content-box">
+                <img src="automacao.png" alt="Ícone Automação">
+                <div>
+                    <h3>Automação</h3>
+                    <p>Tempo de atividade 24 horas por dia, 7 dias por semana, com fila, estatísticas, classificações, relatórios de correspondência e replays totalmente automatizados. Concentre-se no seu jogo e deixe-nos fazer o resto.</p>
+                </div>
+            </div>
+            <div class="content-box">
+                <img src="rankings.png" alt="Ícone Rankings">
+                <div>
+                    <h3>Rankings</h3>
+                    <p>Classificações e tabelas de classificação para cada modo e estatística principal. Encontre facilmente os melhores jogadores em cada modo e mantenha-se atualizado com seu progresso.</p>
+                </div>
+            </div>
+            <div class="content-box">
+                <img src="comunidade.png" alt="Ícone Comunidade">
+                <div>
+                    <h3>Comunidade</h3>
+                    <p>Lar de centenas de jogadores que desejam testar suas habilidades. Compita com jogadores de vários níveis de habilidade.</p>
+                </div>
+            </div>
+            <div class="content-box">
+                <img src="gravacao.png" alt="Ícone Gravação">
+                <div>
+                    <h3>Gravação automática</h3>
+                    <p>Cada jogo é documentado e gravado para você olhar para trás. As estatísticas e replays são atualizados assim que o jogo termina.</p>
+                </div>
+            </div>
+            <div class="content-box">
+                <img src="contas.png" alt="Ícone Contas">
+                <div>
+                    <h3>Sistema de contas</h3>
+                    <p>Conta criada automaticamente após você terminar o jogo. Não é necessário registro, senhas ou login.</p>
+                </div>
+            </div>
+            <div class="content-box">
+                <img src="salas.png" alt="Ícone Salas">
+                <div>
+                    <h3>Salas Ranqueadas</h3>
+                    <p>Jogue em salas ranqueadas competitivas voltadas para jogadores intermediários/profissionais. Bloqueado por certos requisitos de classificação e habilidade para garantir jogos de alta qualidade.</p>
+                </div>
+            </div>
+            <div class="content-box">
+                <img src="moderacao.png" alt="Ícone Moderação">
+                <div>
+                    <h3>Moderação</h3>
+                    <p>Comprometidos em garantir um ambiente acolhedor, não tóxico e competitivo para nossos jogadores.</p>
+                </div>
+            </div>
+            <div class="content-box">
+                <img src="torneios.png" alt="Ícone Torneios">
+                <div>
+                    <h3>Torneios</h3>
+                    <p>Os torneios que contêm os jogadores mais bem classificados em cada modo resultam em apostas altas e competição.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
