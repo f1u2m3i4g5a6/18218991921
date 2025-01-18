@@ -1,0 +1,263 @@
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universal Abyss - Inscrição de Times</title>
+    <link rel="icon" href="universal.ico" type="image/icon">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+        body {
+            margin: 0;
+            font-family: 'Orbitron', sans-serif;
+            background-color: #0b121e;
+            color: #ffffff;
+        }
+        .container {
+            width: 100%;
+            padding: 10px 20px;
+            background-color: #1a1d2b;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            border-radius: 0 0 10px 10px;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+        .navbar {
+            display: flex;
+        }
+        .navbar a {
+            margin: 0 10px;
+            font-size: 14px;
+            text-decoration: none;
+            color: #ffffff;
+            border: 2px solid transparent;
+            padding: 7px 14px;
+            border-radius: 10px;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        .navbar a:hover {
+            background-color: #ffffff;
+            color: #0b121e;
+            border-color: #0b121e;
+        }
+        main {
+            margin-top: 80px;
+            padding: 20px;
+            text-align: center;
+        }
+        .hero {
+            background: url('hero-image.jpg') no-repeat center center;
+            background-size: cover;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .hero h1 {
+            font-size: 36px;
+            margin: 0;
+        }
+        .form-section {
+            margin: 20px auto;
+            width: 90%;
+            max-width: 800px;
+            background-color: #1a1d2b;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            text-align: left;
+        }
+        .form-section h2 {
+            margin-bottom: 15px;
+            font-size: 28px;
+            color: #89CFF0;
+        }
+        .form-section label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-section input,
+        .form-section textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #0b121e;
+            color: #ffffff;
+            border: 1px solid #89CFF0;
+        }
+        .form-section button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #89CFF0;
+            color: #0b121e;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .form-section button:hover {
+            background-color: #0b121e;
+            color: #ffffff;
+        }
+        .error-message {
+            display: none;
+            color: #ff4d4d;
+            margin-bottom: 15px;
+        }
+        .success-message {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #89CFF0;
+            color: #0b121e;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            z-index: 1001;
+            text-align: center;
+        }
+        .success-message button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            background-color: #0b121e;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header class="container">
+        <div class="logo">Universal Abyss</div>
+        <nav class="navbar">
+            <a href="universal">Início</a>
+            <a href="salas">Salas</a>
+            <a href="sobre">Sobre</a>
+            <a href="discord" target="_blank">Discord</a>
+            <a href="temporadas" target="_blank">Temporadas</a>
+            <a href="reclamacoes" target="_blank">Reclamações</a>
+            <a href="inscrever" target="_blank">Inscrever</a>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <div>
+                <h1>Inscrição de Times</h1>
+                <p>Inscreva seu time para participar das competições!</p>
+            </div>
+        </section>
+        <section class="form-section">
+            <h2>Formulário de Inscrição</h2>
+            <form id="inscricaoForm">
+                <div class="error-message" id="errorMessage">Por favor, preencha todos os campos corretamente.</div>
+                
+                <label for="nome-time">Nome do Time:</label>
+                <input type="text" id="nome-time" name="nome-time" required>
+                
+                <label for="nome-capitao">Nome do Capitão:</label>
+                <input type="text" id="nome-capitao" name="nome-capitao" required>
+                
+                <label for="jogadores">Jogadores e Números de Camisa:</label>
+                <textarea id="jogadores" name="jogadores" rows="5" placeholder="Exemplo: Jogador 1 - Camisa 10, Jogador 2 - Camisa 9" required></textarea>
+                
+                <label for="imagem-time">Imagem do Time:</label>
+                <input type="text" id="imagem-time" name="imagem-time" placeholder="URL da imagem do time" required>
+                
+                <label for="uniforme-titular">Uniforme Titular:</label>
+                <textarea id="uniforme-titular" name="uniforme-titular" rows="2" placeholder="/colors red 60 FFFFFF 000000 FF0000 000000 Uniforme titular Ajax" required></textarea>
+                
+                <label for="uniforme-reserva">Uniforme Reserva:</label>
+                <textarea id="uniforme-reserva" name="uniforme-reserva" rows="2" placeholder="/colors red 60 000000 FFFFFF FF0000 FFFFFF Uniforme reserva" required></textarea>
+                
+                <button type="submit">Enviar Inscrição</button>
+            </form>
+        </section>
+    </main>
+    <div class="success-message" id="successMessage">
+        Inscrição enviada com sucesso! Seu time foi registrado.
+        <button id="closeButton">Fechar</button>
+    </div>
+    <script>
+        document.getElementById('inscricaoForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nomeTime = document.getElementById('nome-time').value.trim();
+            const nomeCapitao = document.getElementById('nome-capitao').value.trim();
+            const jogadores = document.getElementById('jogadores').value.trim();
+            const imagemTime = document.getElementById('imagem-time').value.trim();
+            const uniformeTitular = document.getElementById('uniforme-titular').value.trim();
+            const uniformeReserva = document.getElementById('uniforme-reserva').value.trim();
+            const errorMessage = document.getElementById('errorMessage');
+
+            if (!nomeTime || !nomeCapitao || !jogadores || !imagemTime || !uniformeTitular || !uniformeReserva) {
+                errorMessage.style.display = 'block';
+                return;
+            } else {
+                errorMessage.style.display = 'none';
+            }
+
+                        const webhookURL = 'https://discord.com/api/webhooks/1330084184621973584/afGQxsGBYmOzevBznFWYYbfA8VshCfFTfD2VZfFRDWsJ7M1ckUy_lA_JvBMxm5BNbZXa';
+
+            const payload = {
+                username: "Inscrição de Times",
+                avatar_url: imagemTime,
+                embeds: [
+                    {
+                        title: "Nova Inscrição de Time",
+                        color: 3447003, // Azul
+                        fields: [
+                            { name: "Nome do Time", value: nomeTime },
+                            { name: "Nome do Capitão", value: nomeCapitao },
+                            { name: "Jogadores e Números de Camisa", value: jogadores },
+                            { name: "Uniforme Titular", value: uniformeTitular },
+                            { name: "Uniforme Reserva", value: uniformeReserva }
+                        ],
+                        timestamp: new Date(),
+                        image: {
+                            url: imagemTime
+                        }
+                    }
+                ]
+            };
+
+            fetch(webhookURL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            })
+            .then(response => {
+                if (response.ok) {
+                    const successMessage = document.getElementById('successMessage');
+                    successMessage.style.display = 'block';
+                    document.getElementById('closeButton').onclick = function() {
+                        successMessage.style.display = 'none';
+                    };
+                } else {
+                    alert('Erro ao enviar inscrição. Por favor, verifique se todas as informações estão corretas.');
+                }
+            })
+            .catch(error => alert('Erro ao enviar inscrição. Por favor, verifique se todas as informações estão corretas.'));
+        });
+    </script>
+</body>
+</html>
