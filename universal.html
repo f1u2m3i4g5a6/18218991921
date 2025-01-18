@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recepção - Universal Abyss</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+        body {
+            margin: 0;
+            font-family: 'Orbitron', sans-serif;
+            background-color: #0b121e;
+            color: #ffffff;
+        }
+        .container {
+            width: 100%;
+            padding: 10px 20px;
+            background-color: #1a1d2b;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            border-radius: 0 0 10px 10px;
+        }
+        .logo img {
+            height: 40px;
+        }
+        .navbar {
+            display: flex;
+        }
+        .navbar a {
+            margin: 0 10px;
+            font-size: 14px;
+            text-decoration: none;
+            color: #ffffff;
+            border: 2px solid transparent;
+            padding: 7px 14px;
+            border-radius: 10px;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        .navbar a:hover {
+            background-color: #ffffff;
+            color: #0b121e;
+            border-color: #0b121e;
+        }
+        main {
+            margin-top: 80px;
+            padding: 20px;
+            text-align: center;
+        }
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .content-section {
+            padding: 9px 0; /* Reduzido o espaçamento */
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .content-section .content-box {
+            width: 300px;
+            margin: 10px; /* Reduzido o espaçamento entre os boxes */
+            background-color: #1a1d2b;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+        }
+        .content-section .content-box img {
+            width: 27.5%; /* Reduzido em mais 35% */
+            transition: transform 0.3s ease;
+            margin: 0 auto;
+            display: block;
+        }
+        .content-section .content-box:hover img {
+            transform: scale(1.1);
+        }
+        .content-section .content-box .text {
+            padding: 4.25px; /* Reduzido o padding */
+            text-align: center;
+        }
+        .hero {
+            background-image: url('hero-image.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+        .hero h1 {
+            font-size: 48px;
+            margin: 0;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        .buttons a {
+            margin: 0 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            text-decoration: none;
+            color: #0b121e;
+            background-color: #ffffff;
+            border-radius: 10px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .buttons a:hover {
+            background-color: #89CFF0; /* Azul bebê */
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <header class="container">
+        <a class="logo" href="/loadingadmin"><img src="logo.png" alt="Logo"></a>
+        <nav class="navbar">
+            <a href="/loading">Início</a>
+            <a href="/loadingsalas">Salas</a>
+            <a href="/loadinguniformes">Uniformes</a>
+            <a href="/loadingdiscord" target="_blank">Discord</a>
+            <a href="/loadingtemporadas" target="_blank">Temporadas</a>
+            <a href="/loadingreclamacoes" target="_blank">Reclamações</a>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <div>
+                <h1>Bem-vindo ao Universal Abyss</h1>
+                <p>Aqui você encontra tudo sobre nosso site.</p>
+                <div class="buttons">
+                    <a href="/loadingdiscord" target="_blank">Nosso Discord</a>
+                    <a href="/loadingsalas">Salas</a>
+                </div>
+            </div>
+        </section>
+        
+        <section class="content-section">
+            <div class="content-box">
+                <img src="console.png" alt="Imersão de Jogador">
+                <div class="text">
+                    <h2>Imersão de Jogador</h2>
+                    <p>Nosso servidor destaca-se por sistemas exclusivos e uma ampla variedade de modalidades de jogo. Com uma arquitetura inovadora, estamos comprometidos com atualizações constantes, visando sempre aprimorar ao máximo a experiência dos jogadores.</p>
+                </div>
+            </div>
+            <div class="content-box">
+                <img src="admin.png" alt="Administração">
+                <div class="text">
+                    <h2>Equipe de Suporte</h2>
+                    <p>Nossa equipe está sempre pronta para oferecer um atendimento acolhedor e suporte dentro do servidor. Trabalhamos incessantemente para melhorar a experiência dos jogadores com orientação e ajuda especializada.</p>
+                </div>
+            </div>
+            <div class="content-box">
+                <img src="host.png" alt="Hospedagem">
+                <div class="text">
+                    <h2>Infraestrutura de Servidores</h2>
+                    <p>Nossos servidores são mantidos em infraestruturas seguras e atualizadas com a mais recente tecnologia. Garantimos desempenho de alta qualidade, proporcionando uma jogabilidade fluida e estável para todos os jogadores.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
