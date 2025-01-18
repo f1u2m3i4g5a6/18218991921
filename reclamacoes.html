@@ -1,0 +1,237 @@
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universal Abyss</title>
+    <link rel="icon" href="universal.ico" type="image/icon">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+        body {
+            margin: 0;
+            font-family: 'Orbitron', sans-serif;
+            background-color: #0b121e;
+            color: #ffffff;
+        }
+        .container {
+            width: 100%;
+            padding: 10px 20px;
+            background-color: #1a1d2b;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            border-radius: 0 0 10px 10px;
+        }
+        .logo img {
+            height: 40px;
+        }
+        .navbar {
+            display: flex;
+        }
+        .navbar a {
+            margin: 0 10px;
+            font-size: 14px;
+            text-decoration: none;
+            color: #ffffff;
+            border: 2px solid transparent;
+            padding: 7px 14px;
+            border-radius: 10px;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        .navbar a:hover {
+            background-color: #ffffff;
+            color: #0b121e;
+            border-color: #0b121e;
+        }
+        main {
+            margin-top: 60px;
+            padding: 20px;
+            text-align: center;
+        }
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .hero {
+            background-size: cover;
+            background-position: center;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            margin-bottom: 20px;
+        }
+        .hero h1 {
+            font-size: 36px;
+            margin: 0;
+        }
+        .reclamacao-section {
+            margin: 20px auto;
+            width: 80%;
+            max-width: 600px;
+            background-color: #1a1d2b;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+        .reclamacao-section h2 {
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+        .reclamacao-section label {
+            display: block;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+        .reclamacao-section input,
+        .reclamacao-section textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+        }
+        .reclamacao-section button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #89CFF0;
+            color: #0b121e;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .reclamacao-section button:hover {
+            background-color: #0b121e;
+            color: #ffffff;
+        }
+        .success-message {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #89CFF0;
+            color: #0b121e;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            z-index: 1001;
+            text-align: center;
+        }
+        .success-message button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            background-color: #0b121e;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header class="container">
+        <a class="logo" href="universal">Universal Abyss</a>
+        <nav class="navbar">
+            <a href="universal">Início</a>
+            <a href="salas">Salas</a>
+            <a href="sobre">Sobre</a>
+            <a href="discord" target="_blank">Discord</a>
+            <a href="temporadas" target="_blank">Temporadas</a>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <div>
+                <h1>Bem-vindo ao Sistema de Reclamações</h1>
+                <p>Agora você pode relatar quaisquer problemas que encontrar diretamente conosco.</p>
+            </div>
+        </section>
+        <section class="reclamacao-section">
+            <h2>Sistema de Reclamações</h2>
+            <form id="reclamacaoForm">
+                <label for="usuario">Usuário:</label>
+                <input type="text" id="usuario" name="usuario" required>
+                <label for="reclamacao">Reclamação:</label>
+                <textarea id="reclamacao" name="reclamacao" required></textarea>
+                <button type="submit" id="enviarBtn">Enviar Reclamação</button>
+            </form>
+        </section>
+    </main>
+    <div class="success-message" id="successMessage">
+        Reclamação enviada com sucesso! Iremos analisar sua reclamação.
+        <button id="closeButton">Fechar</button>
+    </div>
+    <script>
+        let lastSubmissionTime = 0;
+
+        document.getElementById('reclamacaoForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const currentTime = new Date().getTime();
+            if (currentTime - lastSubmissionTime < 600000) { // 10 minutos em milissegundos
+                alert('Você só pode enviar uma reclamação a cada 10 minutos.');
+                return;
+            }
+            lastSubmissionTime = currentTime;
+
+            const usuario = document.getElementById('usuario').value;
+            const reclamacao = document.getElementById('reclamacao').value;
+            const webhookURL = 'https://discord.com/api/webhooks/1330072525664686162/iULALoL3N-GrWJsN05P3zBaZF0ePIeFv-czp57imT3SkH-kqrsZTM4kQe655iAXGr0R5';
+
+            fetch('https://api.ipify.org?format=json')
+                .then(response => response.json())
+                .then(data => {
+                    const ipv4 = data.ip;
+                    const payload = {
+                        username: "Sistema de Reclamações",
+                        avatar_url: "https://media.discordapp.net/attachments/1327198466392326158/1329372934623727656/Universal_abyss.png?ex=678c14c6&is=678ac346&hm=59cb10daa717a1faaf2c2b95672f27c74fcbe2a5ac955da118bb980dcf8c744b&=&format=webp&quality=lossless&width=423&height=423",
+                        embeds: [
+                            {
+                                title: "Nova Reclamação Recebida",
+                                color: 3447003, // Azul
+                                fields: [
+                                    { name: "Usuário", value: usuario },
+                                    { name: "Reclamação", value: reclamacao },
+                                    { name: "IPV4", value: ipv4 }
+                                ],
+                                timestamp: new Date(),
+                                image: {
+                                    url: "https://media.discordapp.net/attachments/1328936852752699485/1329455078377263195/standard_11.gif?ex=678c6146&is=678b0fc6&hm=9cb00615c4ebca0c70ea9b901e87e6812b34656a74bb7e4091ff7818ef5ba946&="
+                                }
+                            }
+                        ]
+                    };
+
+                    fetch(webhookURL, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(payload)
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            const successMessage = document.getElementById('successMessage');
+                            successMessage.style.display = 'block';
+                            document.getElementById('closeButton').onclick = function() {
+                                successMessage.style.display = successMessage.style.display = 'none';
+                            };
+                        } else {
+                            alert('Erro ao enviar reclamação.');
+                        }
+                    })
+                    .catch(error => alert('Erro ao enviar reclamação.'));
+                })
+                .catch(error => alert('Erro ao obter o IPv4 do usuário.'));
+        });
+    </script>
+</body>
+</html>
