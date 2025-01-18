@@ -1,0 +1,201 @@
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universal Abyss - Temporadas</title>
+    <link rel="icon" href="universal.ico" type="image/icon">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+        body {
+            margin: 0;
+            font-family: 'Orbitron', sans-serif;
+            background-color: #0b121e;
+            color: #ffffff;
+        }
+        .container {
+            width: 100%;
+            padding: 10px 20px;
+            background-color: #1a1d2b;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            border-radius: 0 0 10px 10px;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+        .navbar {
+            display: flex;
+        }
+        .navbar a {
+            margin: 0 10px;
+            font-size: 14px;
+            text-decoration: none;
+            color: #ffffff;
+            border: 2px solid transparent;
+            padding: 7px 14px;
+            border-radius: 10px;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        .navbar a:hover {
+            background-color: #ffffff;
+            color: #0b121e;
+            border-color: #0b121e;
+        }
+        main {
+            margin-top: 80px;
+            padding: 20px;
+            text-align: center;
+        }
+        .hero {
+            background: url('hero-image.jpg') no-repeat center center;
+            background-size: cover;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .hero:hover {
+            transform: scale(1.05);
+        }
+        .hero h1 {
+            font-size: 36px;
+            margin: 0;
+        }
+        .temporadas-section {
+            margin: 20px auto;
+            width: 90%;
+            max-width: 800px;
+            background-color: #1a1d2b;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease-in-out;
+        }
+        .temporadas-section:hover {
+            transform: scale(1.05);
+        }
+        .temporadas-section h2 {
+            margin-bottom: 15px;
+            font-size: 28px;
+            color: #89CFF0;
+        }
+        .temporadas-section p {
+            margin-bottom: 15px;
+            text-align: left;
+            line-height: 1.6;
+        }
+        .temporadas-section .event, .temporadas-section .staff, .temporadas-section .inscription {
+            background-color: #282c3a;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease-in-out;
+        }
+        .temporadas-section .event:hover, .temporadas-section .staff:hover, .temporadas-section .inscription:hover {
+            transform: scale(1.05);
+        }
+        .temporadas-section .event h3, .temporadas-section .staff h3, .temporadas-section .inscription h3 {
+            margin: 0 0 10px;
+            font-size: 22px;
+            color: #89CFF0;
+        }
+        .temporadas-section .event p, .temporadas-section .staff p, .temporadas-section .inscription p {
+            margin: 5px 0;
+        }
+        .temporadas-section a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #89CFF0;
+            color: #0b121e;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .temporadas-section a:hover {
+            background-color: #0b121e;
+            color: #ffffff;
+        }
+        .join-discord {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #7289da;
+            color: #ffffff;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .join-discord:hover {
+            background-color: #4a5bb3;
+        }
+    </style>
+</head>
+<body>
+    <header class="container">
+        <div class="logo">Universal Abyss</div>
+        <nav class="navbar">
+            <a href="universal">Início</a>
+            <a href="salas">Salas</a>
+            <a href="sobre">Sobre</a>
+            <a href="discord" target="_blank">Discord</a>
+            <a href="temporadas" target="_blank">Temporadas</a>
+            <a href="reclamacoes" target="_blank">Reclamações</a>
+            <a href="inscrever" target="_blank">Inscrever</a>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <div>
+                <h1>Temporadas</h1>
+                <p>Os melhores jogadores de cada modo de jogo serão registrados!</p>
+            </div>
+        </section>
+        <section class="temporadas-section">
+            <h2>Sobre as Temporadas</h2>
+            <p>Nas "Temporadas", os melhores jogadores de cada modo de jogo, Normal ou Flash, serão registrados em nosso Discord e website. Somente o melhor de cada categoria, com base em jogos, vitórias, empates, taxa de vitória, gols, assistências e CS, será arquivado. Além disso, os jogadores que fizerem mais gols contra também terão seu desempenho registrado.</p>
+            <p>Para visualizar as tabelas e acompanhar os jogadores, é necessário entrar no nosso Discord! Lá você poderá conferir o desempenho e as estatísticas das temporadas.</p>
+            
+            <div class="event">
+                <h3>Eventos Mensais</h3>
+                <div class="event">
+                    <h3>Torneio Mensal de Flash</h3>
+                    <p>Participe do nosso torneio mensal de Flash e mostre suas habilidades contra outros jogadores!</p>
+                </div>
+                <div class="event">
+                    <h3>Campeonato de Modo Normal</h3>
+                    <p>Compita no nosso campeonato de modo Normal e prove que você é o melhor jogador do mês!</p>
+                </div>
+            </div>
+
+            <div class="staff">
+                <h3>Equipe de Staff</h3>
+                <p>Nossa dedicada equipe de staff está sempre pronta para oferecer o melhor atendimento e suporte. Estamos aqui para garantir que você tenha a melhor experiência possível em nossas temporadas e eventos.</p>
+            </div>
+            
+            <div class="inscription">
+                <h3>Inscrição de Times</h3>
+                <p>Quer inscrever o seu time? Acesse o link abaixo para preencher o formulário de inscrição e participar das nossas competições:</p>
+                <a href="inscrever">Inscrever time</a>
+            </div>
+            
+            <p>Para mais informações, entre no nosso Discord:</p>
+            <a class="join-discord" href="https://discord.gg/seu-link-do-discord" target="_blank">Entrar no Discord</a>
+        </section>
+    </main>
+</body>
+</html>
