@@ -1,0 +1,165 @@
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universal Abyss - Salas</title>
+    <link rel="icon" href="universal.ico" type="image/icon">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+        body {
+            margin: 0;
+            font-family: 'Orbitron', sans-serif;
+            background-color: #0b121e;
+            color: #ffffff;
+        }
+        .container {
+            width: 100%;
+            padding: 10px 20px;
+            background-color: #1a1d2b;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            border-radius: 0 0 10px 10px;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+        .navbar {
+            display: flex;
+        }
+        .navbar a {
+            margin: 0 10px;
+            font-size: 14px;
+            text-decoration: none;
+            color: #ffffff;
+            border: 2px solid transparent;
+            padding: 7px 14px;
+            border-radius: 10px;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        .navbar a:hover {
+            background-color: #ffffff;
+            color: #0b121e;
+            border-color: #0b121e;
+        }
+        main {
+            margin-top: 80px;
+            padding: 20px;
+            text-align: center;
+        }
+        .hero {
+            background: url('hero-image.jpg') no-repeat center center;
+            background-size: cover;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .hero h1 {
+            font-size: 36px;
+            margin: 0;
+        }
+        .salas-section {
+            margin: 20px auto;
+            width: 90%;
+            max-width: 800px;
+            background-color: #1a1d2b;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+        .sala {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: left;
+        }
+        .sala-online {
+            background-color: #004d00;
+            box-shadow: 0 0 10px rgba(0, 128, 0, 0.5);
+        }
+        .sala-offline {
+            background-color: #4d0000;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+        }
+        .sala h3 {
+            margin: 0;
+            font-size: 22px;
+            color: #89CFF0;
+        }
+        .sala p {
+            margin: 5px 0;
+            color: #ffffff;
+        }
+        .sala a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #89CFF0;
+            color: #0b121e;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s, color 0.3s;
+            margin-top: 10px;
+        }
+        .sala a:hover {
+            background-color: #0b121e;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <header class="container">
+        <div class="logo">Universal Abyss</div>
+        <nav class="navbar">
+            <a href="universal">Início</a>
+            <a href="sobre">Sobre</a>
+            <a href="discord" target="_blank">Discord</a>
+            <a href="temporadas" target="_blank">Temporadas</a>
+            <a href="reclamacoes" target="_blank">Reclamações</a>
+            <a href="inscrever" target="_blank">Inscrever</a>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <div>
+                <h1>Salas</h1>
+                <p>Entre em nossas salas para se divertir e competir!</p>
+            </div>
+        </section>
+        <section class="salas-section">
+            <div class="sala sala-online">
+                <h3>[ UA ]: X3 NORMAL</h3>
+                <p>Status: <span style="color: #00FF00;">Online</span></p>
+                <a href="normalx3" target="_blank">Entrar na Sala</a>
+            </div>
+            <div class="sala sala-offline">
+                <h3>[ UA ]: X3 FLASH</h3>
+                <p>Status: <span style="color: #FF0000;">Offline</span></p>
+                <a href="flashx3" target="_blank" style="pointer-events: none; opacity: 0.5;">Entrar na Sala</a>
+            </div>
+            <div class="sala sala-offline">
+                <h3>[ UA ]: X3 NÍVEL</h3>
+                <p>Status: <span style="color: #FF0000;">Offline</span></p>
+                <a href="nivelx3" target="_blank" style="pointer-events: none; opacity: 0.5;">Entrar na Sala</a>
+            </div>
+            <div class="sala sala-offline">
+                <h3>[ UA ]: X3 RAPIDONA</h3>
+                <p>Status: <span style="color: #FF0000;">Offline</span></p>
+                <a href="rapidonax3" target="_blank" style="pointer-events: none; opacity: 0.5;">Entrar na Sala</a>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
