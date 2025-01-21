@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universal Abyss</title>
+    <link rel="icon" href="universal.ico" type="image/icon">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+        body {
+            margin: 0;
+            font-family: 'Orbitron', sans-serif;
+            background-color: #0b121e;
+            color: #ffffff;
+        }
+        .container {
+            width: 100%;
+            padding: 10px 20px;
+            background-color: #1a1d2b;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            border-radius: 0 0 10px 10px;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+        .navbar {
+            display: flex;
+        }
+        .navbar a {
+            margin: 0 10px;
+            font-size: 14px;
+            text-decoration: none;
+            color: #ffffff;
+            border: 2px solid transparent;
+            padding: 7px 14px;
+            border-radius: 10px;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        .navbar a:hover {
+            background-color: #ffffff;
+            color: #0b121e;
+            border-color: #0b121e;
+        }
+        main {
+            margin-top: 80px;
+            padding: 20px;
+            text-align: center;
+        }
+        .admin-panel {
+            margin: 20px auto;
+            width: 90%;
+            max-width: 800px;
+            background-color: #1a1d2b;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+        .admin-panel h2 {
+            margin-bottom: 15px;
+            font-size: 28px;
+            color: #89CFF0;
+        }
+        .admin-panel button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #89CFF0;
+            color: #0b121e;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 10px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .admin-panel button:hover {
+            background-color: #0b121e;
+            color: #ffffff;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #2a2e3d;
+            color: #ffffff;
+            font-size: 14px;
+        }
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+        table th, table td {
+            border: 1px solid #ffffff;
+            padding: 10px;
+            text-align: left;
+        }
+        table th {
+            background-color: #1a1d2b;
+        }
+    </style>
+</head>
+<body>
+    <header class="container">
+        <div class="universal">Universal Abyss</div>
+        <nav class="navbar">
+            <a href="universal">Início</a>
+            <a href="1789172197207700707843473334">Painel</a>
+            <a href="729127198217989286621111670661">Admin</a>
+            <a href="8189212345678789672326333">Embed</a>
+            <a href="12182172817291827145455679909">Tabela</a>
+            <a href="salas">Salas</a>
+        </nav>
+    </header>
+    <main>
+        <section class="admin-panel">
+            <h2>VIPS - [ UA ]</h2>
+            <div class="form-group">
+                <label for="username">Nome do Usuário</label>
+                <input type="text" id="username" placeholder="Digite o nome do usuário">
+            </div>
+            <div class="form-group">
+                <label for="vipType">Tipo de VIP</label>
+                <select id="vipType">
+                    <option value="⭐ • Deluxe I">⭐ • Deluxe I</option>
+                    <option value="⭐ • Deluxe II">⭐ • Deluxe II</option>
+                    <option value="⭐ • Deluxe III">⭐ • Deluxe III</option>
+                    <option value="🌟 • Deluxe IV">🌟 • Deluxe IV</option>
+                </select>
+            </div>
+            <button onclick="addVipRecord()">Registrar VIP</button>
+            <h3>Registros de VIP</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Usuário</th>
+                        <th>Tipo de VIP</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="vipRecords">
+                    <!-- Registros serão adicionados dinamicamente -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const records = JSON.parse(localStorage.getItem('vipRecords')) || [];
+            records.forEach(record => addVipRow(record.username, record.vipType));
+        });
+
+        function addVipRecord() {
+            const username = document.getElementById('username').value.trim();
+            const vipType = document.getElementById('vipType').value;
+
+            if (!username) {
+                alert('Por favor, insira o nome do usuário.');
+                return;
+            }
+
+            const record = { username, vipType };
+            const records = JSON.parse(localStorage.getItem('vipRecords')) || [];
+            records.push(record);
+            localStorage.setItem('vipRecords', JSON.stringify(records));
+
+            addVipRow(username, vipType);
+            document.getElementById('username').value = '';
+
+            // Enviar dados para o Discord via Webhook
+            sendToDiscord(username, vipType);
+        }
+
+        function addVipRow(username, vipType) {
+            const tableBody = document.getElementById('vipRecords');
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${username}</td>
+                <td>${vipType}</td>
+                <td><button onclick="deleteVipRecord(this)">Excluir</button></td>
+            `;
+            tableBody.appendChild(row);
+        }
+
+        function deleteVipRecord(button) {
+            const row = button.parentElement.parentElement;
+            const username = row.children[0].textContent;
+            const vipType = row.children[1].textContent;
+
+            let records = JSON.parse(localStorage.getItem('vipRecords')) || [];
+            records = records.filter(record => !(record.username === username && record.vipType === vipType));
+            localStorage.setItem('vipRecords', JSON.stringify(records));
+
+            row.remove();
+        }
+
+        function sendToDiscord(username, vipType) {
+            const webhookURL = "https://discord.com/api/webhooks/1331140894924996608/7H2qMu4wUj8s0Rf_h-Q0IqrY-abWCcRwlIXVywvr4At0FfvNhBrHBsF8UWTOwOjlFU4R";
+            
+            const embed = {
+                username: "Universal Abyss",
+                avatar_url: "https://media.discordapp.net/attachments/1327198466392326158/1329372934623727656/Universal_abyss.png?ex=67900946&is=678eb7c6&hm=3d39871cde60aea462887c82f6906f2bc879ac38d5a0e7ec3678fbad4b4639b9&=&format=webp&quality=lossless&width=423&height=423",
+                embeds: [{
+                    color: 3447003,
+                    title: "Novo Registro VIP",
+                    description: `Usuário **${username}** foi registrado com o VIP.`,
+                    fields: [
+                        {
+                            name: "Nome do Usuário",
+                            value: username,
+                            inline: true
+                        },
+                        {
+                            name: "Tipo de VIP",
+                            value: vipType,
+                            inline: true
+                        }
+                    ],
+                    footer: {
+                        text: "Universal Abyss",
+                        icon_url: "https://media.discordapp.net/attachments/1327198466392326158/1329372934623727656/Universal_abyss.png?ex=67900946&is=678eb7c6&hm=3d39871cde60aea462887c82f6906f2bc879ac38d5a0e7ec3678fbad4b4639b9&=&format=webp&quality=lossless&width=423&height=423"
+                    },
+                    timestamp: new Date().toISOString()
+                }]
+            };
+
+            fetch(webhookURL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(embed)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Falha ao enviar para o Discord');
+                }
+            })
+            .catch(error => console.error('Erro ao enviar para o Discord:', error));
+        }
+    </script>
+</body>
+</html>
