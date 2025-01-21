@@ -141,17 +141,18 @@
     </header>
     <main>
         <section class="admin-panel">
-            <h2>Enviar Mídia</h2>
-            <div class="form-group">
-                <label for="media">Selecione a Mídia (Imagem ou Vídeo)</label>
-                <input type="file" id="media" accept="image/*,video/*">
-            </div>
-            <div class="form-group">
-                <label for="username">Nome do Usuário</label>
-                <input type="text" id="username" placeholder="Digite o nome do usuário">
-            </div>
-            <button onclick="sendMedia()">Enviar Mídia</button>
-        </section>
+    <h2>Enviar Mídia</h2>
+    <div class="form-group">
+        <label for="media">Selecione a Mídia (Imagem ou Vídeo)</label>
+        <input type="file" id="media" accept="image/*,video/*">
+    </div>
+    <div class="form-group">
+        <label for="username">Nome do Usuário</label>
+        <input type="text" id="username" placeholder="Digite o nome do usuário">
+    </div>
+    <button onclick="sendMedia()">Enviar Mídia</button>
+    <p><strong>Obs:</strong> O envio pode demorar dependendo do tamanho da mídia.</p>
+</section>
     </main>
     <script>
         function sendMedia() {
