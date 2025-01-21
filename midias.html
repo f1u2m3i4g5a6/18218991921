@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universal Abyss</title>
+    <link rel="icon" href="universal.ico" type="image/icon">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+        body {
+            margin: 0;
+            font-family: 'Orbitron', sans-serif;
+            background-color: #0b121e;
+            color: #ffffff;
+            padding: 0;
+        }
+        .container {
+            width: 100%;
+            padding: 10px 20px;
+            background-color: #1a1d2b;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            border-radius: 0 0 10px 10px;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+        .navbar {
+            display: flex;
+        }
+        .navbar a {
+            margin: 0 10px;
+            font-size: 14px;
+            text-decoration: none;
+            color: #ffffff;
+            border: 2px solid transparent;
+            padding: 7px 14px;
+            border-radius: 10px;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        .navbar a:hover {
+            background-color: #ffffff;
+            color: #0b121e;
+            border-color: #0b121e;
+        }
+        main {
+            margin-top: 80px;
+            padding: 20px;
+            text-align: center;
+        }
+        .admin-panel {
+            margin: 20px auto;
+            width: 90%;
+            max-width: 800px;
+            background-color: #1a1d2b;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+        }
+        .admin-panel h2 {
+            margin-bottom: 15px;
+            font-size: 32px;
+            color: #89CFF0;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+        .admin-panel button {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #89CFF0;
+            color: #0b121e;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 15px 10px;
+            font-size: 16px;
+            transition: background-color 0.3s, color 0.3s, transform 0.3s;
+        }
+        .admin-panel button:hover {
+            background-color: #0b121e;
+            color: #ffffff;
+            transform: scale(1.1);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+        .form-group input, .form-group select, .form-group input[type="file"] {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background-color: #2a2e3d;
+            color: #ffffff;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .form-group input:focus, .form-group select:focus, .form-group input[type="file"]:focus {
+            background-color: #3c4551;
+            outline: none;
+        }
+        table {
+            width: 100%;
+            margin-top: 30px;
+            border-collapse: collapse;
+        }
+        table th, table td {
+            border: 1px solid #ffffff;
+            padding: 15px;
+            text-align: left;
+        }
+        table th {
+            background-color: #1a1d2b;
+        }
+    </style>
+</head>
+<body>
+    <header class="container">
+        <div class="universal">Universal Abyss</div>
+        <nav class="navbar">
+            <a href="universal">Início</a>
+            <a href="salas">Salas</a>
+            <a href="sobre">Sobre</a>
+            <a href="discord" target="_blank">Discord</a>
+            <a href="temporadas" target="_blank">Temporadas</a>
+            <a href="reclamacoes" target="_blank">Reclamações</a>
+            <a href="inscrever" target="_blank">Inscrever</a>
+        </nav>
+    </header>
+    <main>
+        <section class="admin-panel">
+            <h2>Enviar Mídia</h2>
+            <div class="form-group">
+                <label for="media">Selecione a Mídia (Imagem ou Vídeo)</label>
+                <input type="file" id="media" accept="image/*,video/*">
+            </div>
+            <div class="form-group">
+                <label for="username">Nome do Usuário</label>
+                <input type="text" id="username" placeholder="Digite o nome do usuário">
+            </div>
+            <button onclick="sendMedia()">Enviar Mídia</button>
+        </section>
+    </main>
+    <script>
+        function sendMedia() {
+            const fileInput = document.getElementById('media');
+            const username = document.getElementById('username').value.trim();
+            const file = fileInput.files[0];
+
+            if (!file || !username) {
+                alert('Por favor, insira o nome do usuário e selecione uma mídia.');
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('file', file);
+            formData.append('username', username);
+
+            // Enviar para o webhook
+            sendToDiscord(formData, username);
+        }
+
+        function sendToDiscord(formData, username) {
+            const webhookURL = "https://discord.com/api/webhooks/1331148413307195442/loMwjY8NdW-jwN2KMRR4ANnhUPF1kXuLLQXJNu9yqALl4DJ-zWmVEBpCqStbscvhLHHZ";
+
+            // Criar a estrutura de embed
+            const embed = {
+                username: "Universal Abyss",
+                avatar_url: "https://media.discordapp.net/attachments/1327198466392326158/1329372934623727656/Universal_abyss.png?ex=67900946&is=678eb7c6&hm=3d39871cde60aea462887c82f6906f2bc879ac38d5a0e7ec3678fbad4b4639b9&=&format=webp&quality=lossless&width=423&height=423",
+                embeds: [{
+                    color: 3447003,
+                    title: "Nova Mídia",
+                    fields: [
+                        {
+                            name: "Usuário:",
+                            value: username,
+                            inline: true
+                        }
+                    ],
+                    footer: {
+                        text: "Feito por fumiga.",
+                        icon_url: "https://media.discordapp.net/attachments/1327198466392326158/1329372934623727656/Universal_abyss.png?ex=67900946&is=678eb7c6&hm=3d39871cde60aea462887c82f6906f2bc879ac38d5a0e7ec3678fbad4b4639b9&=&format=webp&quality=lossless&width=423&height=423"
+                    },
+                    timestamp: new Date().toISOString()
+                }]
+            };
+
+            // Enviar a mídia junto com o embed
+            const data = new FormData();
+            data.append('file', formData.get('file'));
+            data.append('payload_json', JSON.stringify(embed));
+
+            fetch(webhookURL, {
+                method: 'POST',
+                body: data
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Falha ao enviar para o Discord');
+                }
+                alert('Mídia enviada com sucesso!');
+            })
+            .catch(error => console.error('Erro ao enviar para o Discord:', error));
+        }
+    </script>
+</body>
+</html>
