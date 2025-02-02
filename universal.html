@@ -60,14 +60,14 @@
             color: #ffffff;
         }
         .content-section {
-            padding: 9px 0; /* Reduzido o espaçamento */
+            padding: 9px 0;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
         }
         .content-section .content-box {
             width: 300px;
-            margin: 10px; /* Reduzido o espaçamento entre os boxes */
+            margin: 10px;
             background-color: #1a1d2b;
             border-radius: 10px;
             overflow: hidden;
@@ -75,7 +75,7 @@
             transition: transform 0.3s ease;
         }
         .content-section .content-box img {
-            width: 27.5%; /* Reduzido em mais 35% */
+            width: 27.5%;
             transition: transform 0.3s ease;
             margin: 0 auto;
             display: block;
@@ -84,7 +84,7 @@
             transform: scale(1.1);
         }
         .content-section .content-box .text {
-            padding: 4.25px; /* Reduzido o padding */
+            padding: 4.25px;
             text-align: center;
         }
         .hero {
@@ -116,8 +116,51 @@
             transition: background-color 0.3s, color 0.3s;
         }
         .buttons a:hover {
-            background-color: #89CFF0; /* Azul bebê */
+            background-color: #89CFF0;
             color: #ffffff;
+        }
+
+        /* Menu Vertical Estilizado - Reduzido */
+        .vertical-menu {
+            position: fixed;
+            top: 80px;
+            left: 20px;
+            background-color: #1a1d2b;
+            width: 125px;  /* Reduzido para 50% */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            padding: 20px;
+            z-index: 999;
+            font-size: 16px;  /* Tamanho da fonte ajustado */
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .vertical-menu a {
+            text-decoration: none;
+            color: #ffffff;
+            padding: 10px;
+            border-radius: 12px;
+            text-align: center;
+            background-color: #333c54;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            font-weight: 600;
+        }
+        .vertical-menu a:hover {
+            background-color: #6a7ea1;
+            transform: scale(1.05);
+            box-shadow: 0 0 12px rgba(106, 126, 161, 0.8);
+        }
+        .vertical-menu a:active {
+            background-color: #4b5c76;
+            box-shadow: inset 0 0 8px rgba(106, 126, 161, 0.7);
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .vertical-menu {
+                width: 160px;  /* Ajuste para telas pequenas */
+            }
         }
     </style>
 </head>
@@ -135,6 +178,16 @@
             <a href="midias" target="_blank">Mídias</a>
         </nav>
     </header>
+    
+    <!-- Menu Vertical -->
+    <div class="vertical-menu">
+    <a href="chat">💬┃Chat</a>
+    <a href="plays">📱┃Plays</a>
+    <a href="confrontos">🆚┃Amis</a>
+    <a href="replays">🎥┃recs</a>
+    <a href="deluxe">🚀┃deluxe</a>
+    </div>
+
     <main>
         <section class="hero">
             <div>
